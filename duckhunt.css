@@ -1,15 +1,14 @@
 #container{
-    margin: 0 auto;
-    width: 1280px;
-    height: 769px;
-    border: 5px solid red;
     background-image: url("images/stage.png");
+    width: 99%;
+    height: 80%;
+    border: 5px solid red;
+    
 }
 
 #duck{
     position: relative;
     width: 250px;
     height: 250px;
+    cursor: crosshair;
 } 
-
-cursor: ;
