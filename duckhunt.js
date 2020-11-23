@@ -18,10 +18,13 @@ var direction= directions[Math.floor(Math.random() * 8)];
 var button = document.getElementById("start");
 var HIT= 0;
 var MISS= 0;
-const wait_time= 0.5; //tussentijd vliegen in seconde 
+const wait_time= 0.3; //tussentijd vliegen in seconde 
 button.onclick = start;
 duck.onclick= function(){score("duck")};
 stage.onclick= function(){score("stage")};
+
+document.getElementById("hits").innerHTML= "HITS: " + HIT;
+document.getElementById("missed").innerHTML= "MISSED: " + MISS;
 
 function start(){
     if(game == false){
@@ -44,8 +47,11 @@ function start(){
 }
 
 function score(clicked){
+    
     if(clicked == "duck" && game == true){
         HIT++;
+        document.getElementById("hits").innerHTML= "HITS: " + HIT;
+        document.getElementById("missed").innerHTML= "MISSED: " + MISS;
 
         if((HIT + MISS) == 20){
             alert("YOU HAVE HIT " + HIT + " TIMES! \n AND YOU HAVE MISSED " + MISS + " TIMES");
@@ -56,6 +62,8 @@ function score(clicked){
         event.stopPropagation();
     }else if(clicked == "stage" && game == true){
         MISS++;
+        document.getElementById("hits").innerHTML= "HITS: " + HIT;
+        document.getElementById("missed").innerHTML= "MISSED: " + MISS;
 
         if((HIT + MISS) == 20){
             alert("YOU HAVE HIT " + HIT + " TIMES! \n AND YOU HAVE MISSED " + MISS + " TIMES");
@@ -127,25 +135,25 @@ function fly(direction){
             break;
         }
 
-        if((middenpositieX + (eend_w / 2)) < 0){ 
+        if((middenpositieX + (eend_w / 2)) <= 0){ 
             middenpositieX= middenpositieX + afstand;
 
             duck.style.top= middenpositieY+ "px"; 
             duck.style.left= middenpositieX + "px"; 
         } 
-        else if((middenpositieX + (eend_w / 2)) > stage_w){
+        else if((middenpositieX + (eend_w / 2)) >= stage_w){
             middenpositieX= middenpositieX - afstand;
             
             duck.style.top= middenpositieY+ "px"; 
             duck.style.left= middenpositieX + "px"; 
         }
-        else if((middenpositieY + (eend_h / 2)) < 0){ 
+        else if((middenpositieY + (eend_h / 2)) <= 0){ 
             middenpositieY= middenpositieY + afstand;
             
             duck.style.top= middenpositieY+ "px"; 
             duck.style.left= middenpositieX + "px"; 
         }
-        else if((middenpositieY + (eend_h / 2)) > stage_h){
+        else if((middenpositieY + (eend_h / 2)) >= stage_h){
             middenpositieY= middenpositieY - afstand;
             
             duck.style.top= middenpositieY+ "px"; 

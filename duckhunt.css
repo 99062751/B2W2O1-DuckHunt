@@ -10,5 +10,15 @@
     position: relative;
     width: 250px;
     height: 250px;
-    cursor: crosshair;
+    cursor: cell;
 } 
+
+#hits{
+    font-weight: bold;
+    color: lime;
+}
+
+#missed{
+    font-weight: bold;
+    color: red;
+}
