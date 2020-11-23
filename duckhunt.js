@@ -13,12 +13,12 @@ var middenpositieY =  stage_h / 2 - eend_h / 2;
 var game = false;
 const afstand= 75;
 var directions = ["N", "NE", "E", "SE", "S", "SW", "W", "NW"];
-var direction= directions[Math.floor(Math.random() * 8)];
+var direction= directions[Math.floor(Math.random() * directions.length)];
 
 var button = document.getElementById("start");
 var HIT= 0;
 var MISS= 0;
-const wait_time= 0.3; //tussentijd vliegen in seconde 
+const wait_time= 0.5; //tussentijd vliegen in seconde 
 button.onclick = start;
 duck.onclick= function(){score("duck")};
 stage.onclick= function(){score("stage")};
