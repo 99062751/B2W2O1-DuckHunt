@@ -7,8 +7,8 @@ var stage_h = parseInt(window.getComputedStyle(stage).height.replace('px', ''));
 var eend_w = parseInt(window.getComputedStyle(duck).width.replace('px', '')); 
 var eend_h = parseInt(window.getComputedStyle(duck).height.replace('px', '')); 
 
-var middenpositieX =  stage_w / 2 -  eend_w / 2;
-var middenpositieY =  stage_h / 2 - eend_h / 2;
+var middenpositieX =  (stage_w  -  eend_w) / 2;
+var middenpositieY =  (stage_h - eend_h) / 2;
 
 var game = false;
 const afstand= 75;
@@ -29,7 +29,8 @@ document.getElementById("missed").innerHTML= "MISSED: " + MISS;
 function start(){
     if(game == false){
         game = true;
-    
+        document.getElementById("start").innerHTML= "START";
+
         middenpositieY =  stage_h / 2 - eend_h / 2;
         middenpositieX =  stage_w / 2 -  eend_w / 2;
         
@@ -47,32 +48,23 @@ function start(){
 }
 
 function score(clicked){
-    
     if(clicked == "duck" && game == true){
         HIT++;
         document.getElementById("hits").innerHTML= "HITS: " + HIT;
-        document.getElementById("missed").innerHTML= "MISSED: " + MISS;
-
-        if((HIT + MISS) == 20){
-            alert("YOU HAVE HIT " + HIT + " TIMES! \n AND YOU HAVE MISSED " + MISS + " TIMES");
-            game = false;
-            HIT= 0;
-            MISS= 0;
-        }
+        
+        
         event.stopPropagation();
     }else if(clicked == "stage" && game == true){
         MISS++;
-        document.getElementById("hits").innerHTML= "HITS: " + HIT;
         document.getElementById("missed").innerHTML= "MISSED: " + MISS;
-
-        if((HIT + MISS) == 20){
-            alert("YOU HAVE HIT " + HIT + " TIMES! \n AND YOU HAVE MISSED " + MISS + " TIMES");
-            game = false;
-            HIT= 0;
-            MISS= 0;
-        }
     }
-    
+    if((HIT + MISS) == 20){
+        alert("YOU HAVE HIT " + HIT + " TIMES! \n AND YOU HAVE MISSED " + MISS + " TIMES");
+        game = false;
+        HIT= 0;
+        MISS= 0;
+        document.getElementById("start").innerHTML= "TRY AGAIN";
+    } 
 }
 
 function fly(direction){
