@@ -59,7 +59,7 @@ function score(clicked){
         document.getElementById("missed").innerHTML= "MISSED: " + MISS;
     }
     if((HIT + MISS) == 20){
-        alert("YOU HAVE HIT " + HIT + " TIMES! \n AND YOU HAVE MISSED " + MISS + " TIMES");
+        alert("YOU HAVE HIT " + HIT + " TIMES! \n AND YOU HAVE MISSED " + MISS + " TIMES!");
         game = false;
         HIT= 0;
         MISS= 0;
