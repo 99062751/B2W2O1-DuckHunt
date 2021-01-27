@@ -51,8 +51,6 @@ function score(clicked){
     if(clicked == "duck" && game == true){
         HIT++;
         document.getElementById("hits").innerHTML= "HITS: " + HIT;
-        
-        
         event.stopPropagation();
     }else if(clicked == "stage" && game == true){
         MISS++;
